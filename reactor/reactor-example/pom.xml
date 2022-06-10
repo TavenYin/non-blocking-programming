@@ -19,6 +19,12 @@
             <artifactId>reactor-core</artifactId>
             <version>3.4.6</version>
         </dependency>
+
+        <dependency>
+            <groupId>io.reactivex.rxjava3</groupId>
+            <artifactId>rxjava</artifactId>
+            <version>3.1.2</version>
+        </dependency>
     </dependencies>
 
 </project>

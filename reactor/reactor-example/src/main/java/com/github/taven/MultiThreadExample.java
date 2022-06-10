@@ -10,8 +10,8 @@ import java.util.concurrent.Executors;
 public class MultiThreadExample {
 
     public static void main(String[] args) {
-        subscribeOn();
-//        publishOn();
+//        subscribeOn();
+        publishOn();
     }
 
     private static void subscribeOn() {

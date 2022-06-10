@@ -64,7 +64,28 @@ public class MonoOperatorExample {
                     };
                 }
             })
-            .subscribe((x)-> System.out.println("actual subscribe: " + x))
+            .subscribe(new CoreSubscriber<String>() {
+                @Override
+                public void onSubscribe(Subscription s) {
+                    System.out.println("RealSubscriber onSubscribe");
+                    s.request(Long.MAX_VALUE);
+                }
+
+                @Override
+                public void onNext(String s) {
+                    System.out.println("RealSubscriber onNext, value: " + s);
+                }
+
+                @Override
+                public void onError(Throwable t) {
+                    System.out.println("RealSubscriber onError");
+                }
+
+                @Override
+                public void onComplete() {
+                    System.out.println("RealSubscriber onComplete");
+                }
+            })
         ;
     }
 }
