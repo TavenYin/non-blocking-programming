@@ -10,6 +10,7 @@ import reactor.core.publisher.MonoOperator;
 import reactor.core.publisher.UnicastProcessor;
 
 import java.nio.charset.StandardCharsets;
+import java.util.List;
 import java.util.function.Function;
 
 /**
@@ -43,6 +44,12 @@ public class MonoEx {
         Mono.just("a")
                 .map(str -> str.getBytes(StandardCharsets.UTF_8))
                 .filter(bytes -> bytes.length == 1)
+                .subscribe(System.out::println);
+
+
+        Mono.just(List.of("one", "two", "three"))
+//                .log()
+                .flatMapIterable(l -> l)
                 .subscribe(System.out::println);
     }
 
